@@ -1,0 +1,34 @@
+.Container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.Search {
+    width: 100%;
+    padding: 1em;
+    border-radius: 25px;
+    position: relative;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+}
+
+.Icon, .Icon_mic, .Icon_drop {
+    display: flex;
+    position: absolute;
+    margin: 1em;
+    top: 6px;
+    cursor: pointer;
+}
+
+.Icon_mic {
+    left: 290px;
+}
+
+.Icon_drop {
+    left: 330px;
+}
