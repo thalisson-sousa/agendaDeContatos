@@ -1,0 +1,16 @@
+.Container {
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    padding: 1em;
+}
+
+.btn {
+    width: 100%;
+}
+
+.icone:hover {
+    width: 40%;
+    border-radius: 50%;
+    background-color: #023e8a;
+}
