@@ -1,0 +1,7 @@
+.Container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 2em;
+    color: #a9def9;
+}
