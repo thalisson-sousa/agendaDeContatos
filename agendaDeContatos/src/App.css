@@ -1,5 +1,15 @@
 #root {
   max-width: 1280px;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
+.footer {
+  background-color: #3B3B3B;
+  bottom: 0;
+  position: fixed;
+  width: 110%;
+  text-align: center;
+  left: -20px;
+}
