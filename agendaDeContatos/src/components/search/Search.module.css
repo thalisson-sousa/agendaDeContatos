@@ -25,6 +25,10 @@
     cursor: pointer;
 }
 
+.Icon {
+    margin-left: 2em;
+}
+
 .Icon_mic {
     left: 290px;
 }
