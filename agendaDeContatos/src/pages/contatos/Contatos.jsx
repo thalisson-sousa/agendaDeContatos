@@ -3,6 +3,7 @@ import CriaContato from "../../components/linkCriaContato/LinkCriaContato";
 import Contato from '../../components/Contatos/Contato';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 async function getApi() {
   return await axios.get('https://agendadecontatosapi.onrender.com/contatos');
@@ -26,7 +27,9 @@ export default function Contatos() {
   return (
     <div className={styles.container}>
       <section>
+        <Link to='./cadastro'>
         <CriaContato />
+        </Link>
       </section>
       <section>
       <div className={styles.Corpo}>
