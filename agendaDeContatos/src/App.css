@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+.screens {
+  height: 44rem;
+  overflow: scroll;
+}
+
 .footer {
   background-color: #3B3B3B;
   bottom: 0;
@@ -12,4 +17,5 @@
   width: 110%;
   text-align: center;
   left: -20px;
+  position: fixed;
 }

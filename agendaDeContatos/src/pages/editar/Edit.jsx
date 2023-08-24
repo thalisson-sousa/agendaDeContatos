@@ -1,14 +1,12 @@
-import styles from "./Exibir.module.css";
+import styles from "./Edit.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { BsTelephone, BsFillPersonFill, BsPencilSquare } from "react-icons/bs";
+import { BsTelephone, BsFillPersonFill } from "react-icons/bs";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
-export default function Exibir() {
+export default function Edit() {
   const navigate = useNavigate();
 
   let { state } = useLocation();
@@ -21,29 +19,8 @@ export default function Exibir() {
       .then(navigate("/"));
   };
 
-  async function getApi() {
-    return await axios.get(
-      `https://agendadecontatosapi.onrender.com/contato/${id}`
-    );
-  }
-
-  const { isLoading, isError, data } = useQuery([], () => getApi());
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Error loading data</p>;
-  }
-
-  if (!data || !data.data || data.data.length === 0) {
-    return <p>No data available</p>;
-  }
   return (
     <div className={styles.Container}>
-
-      <div className={styles.Icon}> <Link to='/edit' state={{id: id}}> <BsPencilSquare/> </Link> </div>
 
       <div className={styles.ContainerImage}>
         <img
@@ -63,7 +40,6 @@ export default function Exibir() {
         <input
           type="text"
           name="nome"
-          value={data.data.nome}
           placeholder="Nome"
           {...register("nome")}
         />
@@ -73,7 +49,6 @@ export default function Exibir() {
         <input
           type="text"
           name="sobrenome"
-          value={data.data.sobrenome}
           placeholder="Sobrenome"
           {...register("sobrenome")}
         />
@@ -83,7 +58,6 @@ export default function Exibir() {
         <input
           type="number"
           name="contato"
-          value={data.data.contato}
           placeholder="Telefone"
           {...register("contato")}
         />
