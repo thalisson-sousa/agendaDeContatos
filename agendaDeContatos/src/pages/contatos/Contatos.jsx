@@ -1,16 +1,16 @@
 import styles from "./Contatos.module.css";
 import CriaContato from "../../components/linkCriaContato/LinkCriaContato";
-import Contato from '../../components/Contatos/Contato';
-import { useQuery } from 'react-query';
-import axios from 'axios';
+import Contato from "../../components/Contatos/Contato";
+import { useQuery } from "react-query";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 async function getApi() {
-  return await axios.get('https://agendadecontatosapi.onrender.com/contatos');
+  return await axios.get("https://agendadecontatosapi.onrender.com/contatos");
 }
 
 export default function Contatos() {
-  const { isLoading, isError, data } = useQuery(['contacts'], () => getApi());
+  const { isLoading, isError, data } = useQuery(["contacts"], () => getApi());
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -27,23 +27,24 @@ export default function Contatos() {
   return (
     <div className={styles.container}>
       <section>
-        <Link to='./cadastro'>
-        <CriaContato />
+        <Link to="./cadastro">
+          <CriaContato />
         </Link>
       </section>
       <section>
-      <div className={styles.Corpo}>
-      {data.data.map((contato) => (
-        <Contato 
-        key={contato.id} 
-        id={contato.id} 
-        imgURL={contato.imgURL} 
-        nome={contato.nome} 
-        sobrenome={contato.sobrenome}
-        bgColor={"#" + ((1 << 24) * Math.random() | 0).toString(16)}
-        />
-      ))}
-    </div>
+        <div className={styles.Corpo}>
+          {data.data.map((contato) => (
+            <Link to="./exibir" state={{id: contato.id}} key={contato.id}>
+              <Contato
+                id={contato.id}
+                imgURL={contato.imgURL}
+                nome={contato.nome}
+                sobrenome={contato.sobrenome}
+                bgColor={"#" + (((1 << 24) * Math.random()) | 0).toString(16)}
+              />
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );

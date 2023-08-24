@@ -1,20 +1,44 @@
-import styles from "./Cadastro.module.css";
+import styles from "./Exibir.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { BsTelephone, BsFillPersonFill } from "react-icons/bs";
 import { FaRegPaperPlane } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
-export default function Cadastro() {
+export default function Exibir() {
   const navigate = useNavigate();
+
+  let { state } = useLocation();
+  const id = state.id;
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    axios.post('https://agendadecontatosapi.onrender.com/newcontato', data).then(
-      navigate('/')
-    )
+    axios
+      .put(`https://agendadecontatosapi.onrender.com/contato/${id}`, data)
+      .then(navigate("/"));
   };
 
+  async function getApi() {
+    return await axios.get(
+      `https://agendadecontatosapi.onrender.com/contato/${id}`
+    );
+  }
+
+  const { isLoading, isError, data } = useQuery([], () => getApi());
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading data</p>;
+  }
+
+  if (!data || !data.data || data.data.length === 0) {
+    return <p>No data available</p>;
+  }
   return (
     <div className={styles.Container}>
       <div className={styles.ContainerImage}>
@@ -35,6 +59,7 @@ export default function Cadastro() {
         <input
           type="text"
           name="nome"
+          value={data.data.nome}
           placeholder="Nome"
           {...register("nome")}
         />
@@ -44,6 +69,7 @@ export default function Cadastro() {
         <input
           type="text"
           name="sobrenome"
+          value={data.data.sobrenome}
           placeholder="Sobrenome"
           {...register("sobrenome")}
         />
@@ -53,6 +79,7 @@ export default function Cadastro() {
         <input
           type="number"
           name="contato"
+          value={data.data.contato}
           placeholder="Telefone"
           {...register("contato")}
         />
