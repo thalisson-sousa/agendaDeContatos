@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { BsTelephone, BsFillPersonFill, BsPencilSquare } from "react-icons/bs";
-import { FaRegPaperPlane } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 export default function Exibir() {
@@ -89,7 +88,6 @@ export default function Exibir() {
         />
       </div>
       <div>
-        <FaRegPaperPlane className={styles.submitIcon} />
         <input
           type="button"
           name="submit"
