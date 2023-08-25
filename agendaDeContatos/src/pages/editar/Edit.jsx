@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BsTelephone, BsFillPersonFill } from "react-icons/bs";
-import { FaRegPaperPlane } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 export default function Edit() {
@@ -63,7 +62,6 @@ export default function Edit() {
         />
       </div>
       <div>
-        <FaRegPaperPlane className={styles.submitIcon} />
         <input
           type="button"
           name="submit"

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BsTelephone, BsFillPersonFill } from "react-icons/bs";
-import { FaRegPaperPlane } from "react-icons/fa";
 
 export default function Cadastro() {
   const navigate = useNavigate();
@@ -58,7 +57,6 @@ export default function Cadastro() {
         />
       </div>
       <div>
-        <FaRegPaperPlane className={styles.submitIcon} />
         <input
           type="button"
           name="submit"
