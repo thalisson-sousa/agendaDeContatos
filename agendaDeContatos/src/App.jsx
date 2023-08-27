@@ -23,10 +23,10 @@ function App() {
             <Route path="recentes" element={<Recentes />} />
             <Route path="cadastro" element={<Cadastro />} />
           </Routes>
+          <section className="footer">
+            <FooterLinks />
+          </section>
         </div>
-        <section className="footer">
-          <FooterLinks />
-        </section>
       </BrowserRouter>
     </>
   );
