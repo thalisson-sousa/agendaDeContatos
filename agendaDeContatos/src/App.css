@@ -19,3 +19,10 @@
   left: -20px;
   position: fixed;
 }
+
+@media only screen and (min-width: 500px) {
+  .footer {
+    width: 421px;
+    bottom: 53vh;
+  }
+}
